@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (Patterns.EMAIL_ADDRESS.matcher(edit_email.getText().toString()).matches()) {
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            finish();
                         } else {
                             Toast.makeText(LoginActivity.this, "Please enter correct email id", Toast.LENGTH_SHORT).show();
                         }
@@ -45,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                     break;
                 case R.id.btn_skip:
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    finish();
                     break;
 
 

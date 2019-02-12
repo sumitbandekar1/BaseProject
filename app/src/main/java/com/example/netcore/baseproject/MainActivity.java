@@ -1,5 +1,6 @@
 package com.example.netcore.baseproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -64,8 +65,10 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.opt_out:
                     break;
                 case R.id.custom_data:
+                    startActivity(new Intent(MainActivity.this,CustomDataActivity.class));
                     break;
                 case R.id.other_function:
+                    startActivity(new Intent(MainActivity.this,OtherFunctionsActivity.class));
                     break;
                 case R.id.get_guid:
                     break;
