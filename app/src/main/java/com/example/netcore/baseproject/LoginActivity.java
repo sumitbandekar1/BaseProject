@@ -1,5 +1,6 @@
 package com.example.netcore.baseproject;
 
+import android.app.Application;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -36,6 +39,10 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (Patterns.EMAIL_ADDRESS.matcher(edit_email.getText().toString()).matches()) {
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
+                           // NetcoreSDK.setIdentity(LoginActivity.this,edit_email.getText().toString());
+                            //NetcoreSDK.login(LoginActivity.this);
+
                             finish();
                         } else {
                             Toast.makeText(LoginActivity.this, "Please enter correct email id", Toast.LENGTH_SHORT).show();

@@ -9,26 +9,20 @@ import android.support.v7.app.AlertDialog;
 public class Utility {
 
 public static void showAlert(Context context,String title,String message){
-    AlertDialog.Builder builder;
+    final AlertDialog.Builder builder;
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-        builder = new AlertDialog.Builder(context, android.R.style.Theme_Material_Dialog_Alert);
+        builder = new AlertDialog.Builder(context, android.R.style.Theme_DeviceDefault_Dialog_MinWidth);
     } else {
         builder = new AlertDialog.Builder(context);
     }
     builder.setTitle(title)
-            .setMessage("mess" +
-                    "")
+            .setMessage(message)
             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                    // continue with delete
-                }
-            })
-            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    // do nothing
+                    dialog.dismiss();
                 }
             })
             .setIcon(R.mipmap.ic_launcher)
             .show();
-}
+    }
 }

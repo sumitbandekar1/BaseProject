@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileUpdateActivity">
+
+
+    <EditText
+        android:id="@+id/ed_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:hint="Enter Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ed_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Enter Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/ed_name"
+        app:layout_constraintStart_toStartOf="@+id/ed_name"
+        app:layout_constraintTop_toBottomOf="@+id/ed_name" />
+
+    <EditText
+        android:id="@+id/ed_age"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Enter Age"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/ed_email"
+        app:layout_constraintStart_toStartOf="@+id/ed_email"
+        app:layout_constraintTop_toBottomOf="@+id/ed_email" />
+
+    <EditText
+        android:id="@+id/ed_mobile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Mobile number"
+        android:maxLength="10"
+        app:layout_constraintEnd_toEndOf="@+id/ed_age"
+        app:layout_constraintStart_toStartOf="@+id/ed_age"
+        app:layout_constraintTop_toBottomOf="@+id/ed_age" />
+
+    <EditText
+        android:id="@+id/ed_dob"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Enter DOB"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/ed_mobile"
+        app:layout_constraintStart_toStartOf="@+id/ed_mobile"
+        app:layout_constraintTop_toBottomOf="@+id/ed_mobile" />
+
+    <EditText
+        android:id="@+id/ed_salary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Enter Salary"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/ed_dob"
+        app:layout_constraintStart_toStartOf="@+id/ed_dob"
+        app:layout_constraintTop_toBottomOf="@+id/ed_dob" />
+
+    <EditText
+        android:id="@+id/ed_site"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Enter Website"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/ed_salary"
+        app:layout_constraintStart_toStartOf="@+id/ed_salary"
+        app:layout_constraintTop_toBottomOf="@+id/ed_salary" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Submit"
+        app:layout_constraintEnd_toEndOf="@+id/ed_site"
+        app:layout_constraintStart_toStartOf="@+id/ed_site"
+        app:layout_constraintTop_toBottomOf="@+id/ed_site" />
+</android.support.constraint.ConstraintLayout>

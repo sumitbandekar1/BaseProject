@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import in.netcore.smartechfcm.NetcoreSDK;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btn_add_to_cart,btn_remove_from_cart,btn_checkout,btn_card_expired,btn_page_browse,btn_profile_update
@@ -49,8 +54,23 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.custome_event:
+                    /*-----add to cart----*/
+                    JSONObject jsonObject = new JSONObject();
+                    JSONObject payload = new JSONObject();
+                    try {
+                        payload.put("name", "Nexus 5");
+                        payload.put("prid", 2);
+                        payload.put("price", 15000);
+                        payload.put("prqt", 1);
+                        jsonObject.put("payload", payload);
+                        NetcoreSDK.track(MainActivity.this, "Add To Cart", jsonObject.toString());
+                    }
+                    catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case R.id.remove_from_cart:
+
                     break;
                 case R.id.checkout:
                     break;
@@ -59,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.page_browse:
                     break;
                 case R.id.profile_update:
+                    startActivity(new Intent(MainActivity.this,ProfileUpdateActivity.class));
                     break;
                 case R.id.opt_in:
                     break;
@@ -71,10 +92,16 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this,OtherFunctionsActivity.class));
                     break;
                 case R.id.get_guid:
+                    Utility.showAlert(MainActivity.this,"GUID",NetcoreSDK.getGUID(MainActivity.this));
                     break;
                 case R.id.get_notification:
+                    startActivity(new Intent(MainActivity.this,ShowNotificationActivity.class));
                     break;
                 case R.id.logout:
+
+                    NetcoreSDK.logout(MainActivity.this);
+                    NetcoreSDK.clearIdentity(MainActivity.this);
+
                     break;
 
             }
