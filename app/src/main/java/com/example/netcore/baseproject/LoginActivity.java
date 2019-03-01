@@ -4,13 +4,16 @@ import android.app.Application;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONObject;
 
+import in.netcore.smartechfcm.NetcoreSDK;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -28,6 +31,18 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(onClickListen);
         btn_skip.setOnClickListener(onClickListen);
 
+        try {
+            Bundle bundle = getIntent().getExtras();
+            if(bundle!=null)
+                for (String key : bundle.keySet()) {
+                    Log.e("", key+" : "+bundle.get("customPayload").toString());
+                    JSONObject jsonObject = new JSONObject(bundle.getString(key));
+                    Toast.makeText(LoginActivity.this,jsonObject.toString()+" : "+bundle.get(key).toString(),Toast.LENGTH_LONG).show();
+                }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     View.OnClickListener onClickListen = new View.OnClickListener() {
@@ -38,6 +53,11 @@ public class LoginActivity extends AppCompatActivity {
                     if (!edit_email.getText().toString().trim().equals("")) {
 
                         if (Patterns.EMAIL_ADDRESS.matcher(edit_email.getText().toString()).matches()) {
+
+
+
+                            NetcoreSDK.setIdentity(LoginActivity.this,edit_email.getText().toString());
+                            NetcoreSDK.login(LoginActivity.this);
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
                            // NetcoreSDK.setIdentity(LoginActivity.this,edit_email.getText().toString());

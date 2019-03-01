@@ -71,8 +71,38 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.remove_from_cart:
 
+                    JSONObject jsonObject2 = new JSONObject();
+                    JSONObject payload2 = new JSONObject();
+                    try {
+                        payload2.put("name", "Nexus s");
+                        payload2.put("prid", 2);
+                        payload2.put("price", 15000);
+                        payload2.put("prqt", 1);
+                        jsonObject2.put("payload", payload2);
+                        NetcoreSDK.track(MainActivity.this, "remove to cart", jsonObject2.toString());
+                    }
+                    catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+
                     break;
                 case R.id.checkout:
+
+                    JSONObject jsonObject1 = new JSONObject();
+                    JSONObject payload1 = new JSONObject();
+                    try {
+                        payload1.put("name", "Nexus");
+                        payload1.put("prid", 2);
+                        payload1.put("price", 15000);
+                        payload1.put("prqt", 1);
+                        jsonObject1.put("payload", payload1);
+                        NetcoreSDK.track(MainActivity.this, "Checkout", jsonObject1.toString());
+                    }
+                    catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
                     break;
                 case R.id.cart_expired:
                     break;
